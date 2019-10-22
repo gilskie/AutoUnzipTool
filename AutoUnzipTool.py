@@ -45,7 +45,6 @@ def main():
     try:
         zip_location, file_extension = get_configuration_file()
         zip_list_of_files = get_zip_directory(zip_location, file_extension)
-        # print("Processing files:", *zip_list_of_files, sep="\n")
 
         start_unzipping_files(zip_list_of_files)
 

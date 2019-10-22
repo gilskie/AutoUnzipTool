@@ -8,11 +8,11 @@ import time
 def get_configuration_file():
     config = configparser.ConfigParser()
 
-    # sandbox_configuration_path = sys.path[0] + '\configurationFile.ini'
-    live_configuration_path = sys.executable.replace("AutoUnzipTool.exe","configurationFile.ini")
+    sandbox_configuration_path = sys.path[0] + '\configurationFile.ini'
+    config.read(sandbox_configuration_path)
 
-    # config.read(sandbox_configuration_path)
-    config.read(live_configuration_path)
+    # live_configuration_path = sys.executable.replace("AutoUnzipTool.exe","configurationFile.ini")
+    # config.read(live_configuration_path)
 
     default_setting = config["DEFAULT"]
 
@@ -45,11 +45,10 @@ def main():
     try:
         zip_location, file_extension = get_configuration_file()
         zip_list_of_files = get_zip_directory(zip_location, file_extension)
-
-        # for zip_file in zip_list_of_files:
-        #     print(f"{zip_file}, {os.path.dirname(zip_file)}")
+        # print("Processing files:", *zip_list_of_files, sep="\n")
 
         start_unzipping_files(zip_list_of_files)
+
         time.sleep(5)
 
     except Exception as e:

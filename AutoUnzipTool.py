@@ -8,11 +8,11 @@ import time
 def get_configuration_file():
     config = configparser.ConfigParser()
 
-    sandbox_configuration_path = sys.path[0] + '\configurationFile.ini'
-    config.read(sandbox_configuration_path)
+    # sandbox_configuration_path = sys.path[0] + '\configurationFile.ini'
+    # config.read(sandbox_configuration_path)
 
-    # live_configuration_path = sys.executable.replace("AutoUnzipTool.exe","configurationFile.ini")
-    # config.read(live_configuration_path)
+    live_configuration_path = sys.executable.replace("AutoUnzipTool.exe","configurationFile.ini")
+    config.read(live_configuration_path)
 
     default_setting = config["DEFAULT"]
 
